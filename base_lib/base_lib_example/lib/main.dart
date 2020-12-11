@@ -1,24 +1,16 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:common_utils/common_utils.dart';
 import 'package:base_lib/base_lib.dart';// as BaseLib;
 
 void main() {
-  print('runApp ${DateTime.now()}');
-
-  var app = MyApp();
-
-  print('app ${DateTime.now()}');
-
-  runApp(app);
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    print('MyApp ${DateTime.now()}');
 
     return MaterialApp(
       title: 'Base Lib Demo',
@@ -36,30 +28,23 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() {
-    print('_MyHomePageState ${DateTime.now()}');
+  _MyHomePageState createState() => _MyHomePageState();
 
-    return _MyHomePageState();
-  }
 }
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  List<PageItem> list = [];
+  List<PageItem> dataList = [];
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
-    list = getPageList();
-    print('initState ${DateTime.now()}');
+    dataList = getPageList();
   }
 
   @override
   Widget build(BuildContext context) {
-
-    print('build ${DateTime.now()}');
 
     return Scaffold(
       appBar: AppBar(
@@ -75,16 +60,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget bodyWidget() {
-    print('run bodywidget ${DateTime.now()}');
     return ListView.builder(
-      itemCount: list.length,
+      itemCount: dataList.length,
+//      itemExtent: 44,   // 固定高度
       itemBuilder: (BuildContext context, int index) {
-        var model = list[index];
+        var model = dataList[index];
         return GestureDetector(
           child: Container(
-            child: Text(model.title),
-            height: 44,
-            color: Util.randomColor(),
+            height: model.height,
+            child: Center(child: Text(model.title)),
+            color: ColorsExt.random(),
           ),
           onTap: () {
             model.index = index;
@@ -94,28 +79,50 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
   }
+  
+  Widget onItemBuilder(BuildContext context, int index) {
+    var model = dataList[index];
+    return GestureDetector(
+      child: Container(
+        height: model.height,
+        child: Center(child: Text(model.title)),
+        color: ColorsExt.random(),
+      ),
+      onTap: () {
+        model.index = index;
+        model.callBack(model);
+      },
+    );
+  }
 
   List<PageItem> getPageList() {
     var list = [
       {
         'title': 'yi',
+        'height': 44,
         'callBack': (data) {
-          print('tap one');
+          for (int i = 0; i < 4; i++) {
+            var r = NumExt.randomInt(0, 10);
+            print(r);
+          }
         }
       },
       {
         'title': 'er',
+        'height': 44,
         'callBack': (data) {
-          print('tap one $data');
+          Util.showSnackBar(context, 'tap one $data');
         }
       },
       {
         'title': 'san',
+        'height': '300',
         'callBack': (data) {
           print('tap one $data ${data.title} ${data.index.toString()} ');
         }
       }
     ];
+
     var modelList = JsonUtil.getObjectList<PageItem>(list, (v) => PageItem.fromJson(v));
     return modelList;
   }
@@ -125,15 +132,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class PageItem {
   String title;
-  int index;
   Function callBack;
+  int index;
+  double height;
 
-  PageItem({this.title, this.callBack, this.index});
+
+  PageItem({this.title, this.callBack, this.index, this.height});
 
   factory PageItem.fromJson(Map<String, dynamic> json) {
     return PageItem(
         title: json['title'],
         index: json['index'],
+//        height: (json['height'] as int).toDouble(),//NumUtil.getDoubleByValueStr(json['height']),
+        height: NumExt.doubleValue(json['height']),
         callBack: json['callBack']
     );
   }

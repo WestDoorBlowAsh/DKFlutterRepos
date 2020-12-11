@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:base_lib/src/common/common.dart';
 import 'package:common_utils/common_utils.dart';
 import 'package:flustars/flustars.dart';
@@ -17,16 +15,16 @@ class Util {
     return name;
   }
 
+  // 在屏幕下方显示 提示(msg)
   static void showSnackBar(BuildContext context, String msg) {
-    Scaffold.of(context).showSnackBar(
-      SnackBar(content: Text("$msg")),
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('$msg'),
+      ),
     );
   }
 
   static bool isLogin() {
     return ObjectUtil.isNotEmpty(SpUtil.getString(BaseConstant.keyAppToken));
   }
-
-  static Color randomColor() =>
-      Color.fromRGBO(Random().nextInt(256), Random().nextInt(256), Random().nextInt(256), 1);
 }
