@@ -288,7 +288,7 @@ packages:
     source: hosted
     version: "1.8.0-nullsafety.4"
   sp_util:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: sp_util
       url: "https://pub.flutter-io.cn"

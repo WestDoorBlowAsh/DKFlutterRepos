@@ -1,7 +1,9 @@
 library base_lib;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/common/index.dart';
+export 'src/data/index.dart';
+export 'src/extension/index.dart';
+export 'src/res/index.dart';
+export 'src/ui/index.dart';
+export 'src/util/index.dart';
+export 'src/models/model.dart';

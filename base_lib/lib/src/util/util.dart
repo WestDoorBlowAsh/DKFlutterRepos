@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:base_lib/src/common/common.dart';
 import 'package:common_utils/common_utils.dart';
 import 'package:flustars/flustars.dart';
@@ -24,4 +26,7 @@ class Util {
   static bool isLogin() {
     return ObjectUtil.isNotEmpty(SpUtil.getString(BaseConstant.keyAppToken));
   }
+
+  static Color randomColor() =>
+      Color.fromRGBO(Random().nextInt(256), Random().nextInt(256), Random().nextInt(256), 1);
 }

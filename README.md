@@ -25,6 +25,8 @@ dependencies:
     dio: ^3.0.10
 
     flustars: ^0.3.3
+    # flustars v0.2.6 版本起依赖common_utils。无需再次添加。
+    # common_utils: '1.2.1'
 
     fluintl: '>=0.1.3 <1.0.0'
   
