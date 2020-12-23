@@ -1,7 +1,6 @@
-
-import 'package:flutter/material.dart';
+import 'package:base_lib/base_lib.dart'; // as BaseLib;
 import 'package:common_utils/common_utils.dart';
-import 'package:base_lib/base_lib.dart';// as BaseLib;
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +10,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: 'Base Lib Demo',
       theme: ThemeData(
@@ -30,11 +28,9 @@ class MyHomePage extends StatefulWidget {
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
-
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   List<PageItem> dataList = [];
 
   @override
@@ -46,7 +42,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -80,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
   }
-  
+
   Widget onItemBuilder(BuildContext context, int index) {
     var model = dataList[index];
     return GestureDetector(
@@ -99,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<PageItem> getPageList() {
     var list = [
       {
-        'title': 'yi',
+        'title': '随机数',
         'height': 44,
         'callBack': (data) {
           for (int i = 0; i < 4; i++) {
@@ -109,22 +104,27 @@ class _MyHomePageState extends State<MyHomePage> {
         }
       },
       {
-        'title': 'er',
+        'title': '提示框 SnackBar',
         'height': 44,
         'callBack': (data) {
           Util.showSnackBar(context, 'tap one $data');
         }
       },
       {
-        'title': 'san',
-        'height': '300',
+        'title': 'json 里数据格式转换 double 出错',
+        'height': Object(),
         'callBack': (data) {
-          print('tap one $data ${data.title} ${data.index.toString()} ');
+          var height = 1238;
+          // var model = NumExt.doubleValue(height, defValue: 50);
+          var model = NumExt.numValue<double>(height);
+          // model = height?.toDouble() ?? 1230;
+          print('ok $model');
         }
       }
     ];
 
-    var modelList = JsonUtil.getObjectList<PageItem>(list, (v) => PageItem.fromJson(v));
+    var modelList =
+        JsonUtil.getObjectList<PageItem>(list, (v) => PageItem.fromJson(v));
     return modelList;
   }
 
@@ -137,16 +137,13 @@ class PageItem {
   int index;
   double height;
 
-
   PageItem({this.title, this.callBack, this.index, this.height});
 
   factory PageItem.fromJson(Map<String, dynamic> json) {
     return PageItem(
         title: json['title'],
         index: json['index'],
-//        height: (json['height'] as int).toDouble(),//NumUtil.getDoubleByValueStr(json['height']),
-        height: NumExt.doubleValue(json['height']),
-        callBack: json['callBack']
-    );
+        height: NumExt.doubleValue(json['height'], defValue: 50),
+        callBack: json['callBack']);
   }
 }
