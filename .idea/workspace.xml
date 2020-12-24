@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="978ec6d2-bc19-4363-a0ad-7da4a51600be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/base_lib/base_lib_example/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/base_lib/base_lib_example/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base_lib/base_lib_example/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/base_lib/base_lib_example/android/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base_lib/base_lib_example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/base_lib/base_lib_example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base_lib/lib/src/extension/extension.dart" beforeDir="false" afterPath="$PROJECT_DIR$/base_lib/lib/src/extension/extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base_lib/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/base_lib/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +20,6 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
-  </component>
   <component name="ProjectId" id="1lXQcIGXeQhr8NcGueBdTcZa27L" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -40,7 +31,7 @@
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../develop/android_sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="SvnConfiguration">
@@ -57,9 +48,21 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="662" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608766346645">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="662" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608766346645" />
     <state x="600" y="119" width="1200" height="785" key="AVDManager" timestamp="1607741534510">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="600" y="119" width="1200" height="785" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1607741534510" />
+    <state x="988" y="274" key="FileChooserDialogImpl" timestamp="1608766356491">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="988" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608766356491" />
+    <state x="709" y="164" key="SettingsEditor" timestamp="1608766372895">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="709" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1608766372895" />
   </component>
 </project>
