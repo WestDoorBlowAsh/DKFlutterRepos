@@ -33,15 +33,33 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<PageItem> dataList = [];
 
+  ///
+  void _onFloatingButton() async {
+//    dataList = getPageList();
+//
+//    LogUtil.e(dataList);
+    print('6666666');
+    await LibGlobal.init(() {
+      print('77777');
+    });
+
+    print('8888');
+  }
+
   @override
   void initState() {
     super.initState();
 
+    LogUtil.e('will initState');
     dataList = getPageList();
+
+    LogUtil.e('initState');
   }
 
   @override
   Widget build(BuildContext context) {
+    LogUtil.e('build');
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -127,8 +145,6 @@ class _MyHomePageState extends State<MyHomePage> {
         JsonUtil.getObjectList<PageItem>(list, (v) => PageItem.fromJson(v));
     return modelList;
   }
-
-  void _onFloatingButton() {}
 }
 
 class PageItem {
@@ -143,7 +159,8 @@ class PageItem {
     return PageItem(
         title: json['title'],
         index: json['index'],
-        height: NumExt.doubleValue(json['height'], defValue: 50),
+//        height: NumExt.doubleValue(json['height'], defValue: 50),
+        height: NumExt.numValue<double>(json['height'], defValue: 50),
         callBack: json['callBack']);
   }
 }

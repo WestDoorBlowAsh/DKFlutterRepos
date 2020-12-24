@@ -36,23 +36,35 @@ extension NumExt on NumUtil {
   static T numValue<T>(value, {T defValue}) {
     var res = defValue ?? 0;
     // var type = T is dynamic ? value.runtimeType : T;
-    switch (T) {
-      case double:
-        res = value.toDouble();
-        break;
-      case int:
-        res = value.toInt();
-        break;
-      case String:
-        break;
-      default: {
-        var message = "numValue error, Exception：${value}.";
-        print("$message");
-        if (LibGlobal.libErrorRethrow) {
-          throw e;
+
+    try {
+
+
+      switch (T) {
+        case double:
+          res = value.toDouble();
+          break;
+        case int:
+          res = value.toInt();
+          break;
+        case String:
+          break;
+        default: {
+          print("default numValue");
         }
       }
+
+
+    } on NoSuchMethodError catch (e, stack) {
+
+      var message = "numValue error, Exception：${value}.";
+      print("$message");
+      if (LibGlobal.libErrorRethrow) {
+        throw e;
+      }
     }
+
+
     return res;
   }
 }

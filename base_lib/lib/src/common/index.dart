@@ -1,2 +1,2 @@
 export 'common.dart';
-export 'global.dart';
+export 'lib_global.dart';
