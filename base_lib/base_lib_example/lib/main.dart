@@ -35,15 +35,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   ///
   void _onFloatingButton() async {
+
+    dynamic data = '123.5';
+    LogUtil.e(data);
+    data = 1;
+
+
+
 //    dataList = getPageList();
 //
 //    LogUtil.e(dataList);
-    print('6666666');
-    await LibGlobal.init(() {
-      print('77777');
-    });
 
-    print('8888');
+
+
   }
 
   @override
